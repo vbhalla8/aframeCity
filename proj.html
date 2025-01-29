@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.4.2/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene fog="type: exponential; color: #8893B7; density: 0.05">
+      <!-- Enhanced Sky Environment -->
+      <!-- Base sky gradient -->
+      <a-sky material="shader: gradient; topColor: #849867; bottomColor: #ff00ff"></a-sky>
+      
+      <!-- Aurora effects -->
+      <a-entity position="0 100 -100">
+        <a-torus-knot radius="50" radius-tubular="2" segments-tubular="128"
+          material="shader: standard; emissive: #00ffff; emissiveIntensity: 0.5; opacity: 0.3"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 30000"></a-torus-knot>
+      </a-entity>
+      
+      <!-- Star field -->
+      <a-entity position="0 100 -100">
+        <a-sphere radius="200" side="back" 
+          material="shader: standard; color: #000000; src: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAD0lEQVQYlWNgYGD4z4ACAA8AAPp8CO/k498JAAAAAElFTkSuQmCC); repeat: 1000 1000; transparent: true; opacity: 0.8"
+          animation="property: rotation; to: 0 360 0; loop: true; dur: 150000"></a-sphere>
+      </a-entity>
+      
+      <!-- Cyberpunk sun/moon -->
+      <a-entity position="20 80 -100">
+        <a-circle radius="15" material="shader: standard; emissive: #ff00ff; emissiveIntensity: 1"></a-circle>
+        <a-ring radius-inner="16" radius-outer="18" material="shader: standard; emissive: #00ffff; emissiveIntensity: 2"
+          animation="property: rotation; to: 0 0 360; loop: true; dur: 10000"></a-ring>
+      </a-entity>
+      
+      <!-- Ground plane -->
+      <a-plane position="0 -0.1 0" rotation="-90 0 0" width="100" height="100" 
+        material="shader: standard; color: #000000; metalness: 1; roughness: 0.3; repeat: 50 50"></a-plane>
+      
+      <!-- Central mega building -->
+      <a-entity position="0 20 -15">
+        <a-box width="8" height="40" depth="8" material="shader: standard; color: #080808; metalness: 0.9; roughness: 0.2">
+          <!-- Vertical neon strips -->
+          <a-box position="-4.01 0 0" width="0.1" height="40" depth="0.5" material="shader: standard; emissive: #ff00ff; emissiveIntensity: 3"></a-box>
+          <a-box position="4.01 0 0" width="0.1" height="40" depth="0.5" material="shader: standard; emissive: #00ffff; emissiveIntensity: 3"></a-box>
+          
+          <!-- Window grid -->
+          <a-entity position="-3.5 -15 4.01" scale="7 30 1">
+            <a-plane material="shader: standard; color: #000000; emissive: #ffff00; emissiveIntensity: 2; opacity: 0.9" repeat="5 10"></a-plane>
+          </a-entity> 
+        </a-box>
+      </a-entity>
+
+      <!-- Side buildings with dramatic lighting -->
+      <a-entity position="-10 12 -12">
+        <a-box width="5" height="24" depth="5" material="shader: standard; color: #0a0a0a; metalness: 0.9; roughness: 0.2">
+          <!-- Holographic billboard -->
+          <a-plane position="0 8 2.51" width="4" height="4" material="shader: standard; emissive: #00ff00; emissiveIntensity: 2; opacity: 0.8">
+            <a-text value="CYBER\nCITY" align="center" width="20"  position="0 0 0.1" color="#fff"></a-text>
+          </a-plane>
+        </a-box>
+      </a-entity>
+
+      <a-entity position="10 15 -10">
+        <a-box width="6" height="30" depth="6" material="shader: standard; color: #0a0a0a; metalness: 0.9; roughness: 0.2">
+          <!-- Animated neon rings -->
+          <a-ring position="0 10 3.01" radius-inner="1" radius-outer="1.2" material="shader: standard; emissive: #ff3366; emissiveIntensity: 3" animation="property: rotation; to: 0 0 360; loop: true; dur: 5000"></a-ring>
+        </a-box>
+      </a-entity>
+
+      <!-- Floating platforms with neon outlines -->
+      <a-entity position="5 8 -8">
+        <a-box width="3" height="0.2" depth="3" material="shader: standard; color: #000000; metalness: 1; roughness: 0">
+          <a-box position="1.5 0 0" width="0.1" height="0.3" depth="3" material="shader: standard; emissive: #00ffff; emissiveIntensity: 3"></a-box>
+          <a-box position="-1.5 0 0" width="0.1" height="0.3" depth="3" material="shader: standard; emissive: #00ffff; emissiveIntensity: 3"></a-box>
+        </a-box>
+      </a-entity>
+
+      <!-- Flying vehicles -->
+      <a-entity position="0 15 10" animation="property: position; to: -20 15 -20; dur: 8000; easing: linear; loop: true">
+        <a-cone rotation="90 0 0" radius-bottom="0.2" radius-top="0" height="1" material="shader: standard; emissive: #ff0000; emissiveIntensity: 2"></a-cone>
+      </a-entity>
+
+      <a-entity position="10 20 15" animation="property: position; to: 10 20 -30; dur: 6000; easing: linear; loop: true">
+        <a-cone rotation="90 0 0" radius-bottom="0.2" radius-top="0" height="1" material="shader: standard; emissive: #00ffff; emissiveIntensity: 2"></a-cone>
+      </a-entity>
+
+      <a-entity position="1 10 15" animation="property: position; to: 10 20 -30; dur: 6000; easing: linear; loop: true">
+        <a-cone rotation="90 0 0" radius-bottom="0.2" radius-top="0" height="1" material="shader: standard; emissive: #B76DA4; emissiveIntensity: 2"></a-cone>
+      </a-entity>
+
+      <a-entity position="-10 1 15" animation="property: position; to: 10 20 -30; dur: 6000; easing: linear; loop: true">
+        <a-cone rotation="90 0 0" radius-bottom="0.2" radius-top="0" height="1" material="shader: standard; emissive: #09FF00; emissiveIntensity: 2"></a-cone>
+      </a-entity>
+
+
+      <!-- Street level neon signs -->
+      <a-entity position="-3 2 -6">
+        <a-text value="" color="#ff00ff" scale="2 2 2" material="shader: standard; emissive: #ff00ff; emissiveIntensity: 2"></a-text>
+      </a-entity>
+
+      <!-- Dynamic lighting -->
+      <a-light type="ambient" color="#000033" intensity="0.2"></a-light>
+      <a-light type="spot" color="#ff00ff" position="-10 20 0" intensity="2" angle="45"></a-light>
+      <a-light type="spot" color="#00ffff" position="10 20 0" intensity="2" angle="45"></a-light>
+      <a-light type="point" color="#ff3366" position="0 15 -15" intensity="1.5"></a-light>
+
+      <!-- Rain particles -->
+      <a-entity position="0 30 -10" particle-system="preset: rain; particleCount: 2000; color: #00ffff; size: 0.1; duration: -1"></a-entity>
+
+      <!-- Camera with initial position -->
+      <a-entity position="0 2 5">
+        <a-camera wasd-controls="acceleration: 65" look-controls></a-camera>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
